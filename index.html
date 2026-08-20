@@ -261,6 +261,7 @@
     </div>
 
     <script>
+        // ===== БУРГЕР-МЕНЮ =====
         const burgerBtn = document.getElementById('burgerBtn');
         const mobileMenu = document.getElementById('mobileMenu');
 
@@ -276,6 +277,29 @@
             });
         });
 
+        // ===== ВЫПАДАЮЩЕЕ МЕНЮ ПО КЛИКУ =====
+        document.querySelectorAll('.dropbtn').forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.stopPropagation();
+                const parent = this.closest('.dropdown');
+                // Закрываем все другие дропдауны
+                document.querySelectorAll('.dropdown.open').forEach(d => {
+                    if (d !== parent) d.classList.remove('open');
+                });
+                parent.classList.toggle('open');
+            });
+        });
+
+        // Закрываем дропдаун при клике вне его
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.dropdown')) {
+                document.querySelectorAll('.dropdown.open').forEach(d => {
+                    d.classList.remove('open');
+                });
+            }
+        });
+
+        // ===== ЭФФЕКТ ЛОГОТИПА ПРИ СКРОЛЛЕ =====
         const logo = document.querySelector('.brand img');
         window.addEventListener('scroll', () => {
             let scroll = window.scrollY;
@@ -289,6 +313,7 @@
             }
         });
 
+        // ===== АНИМАЦИЯ ПОЯВЛЕНИЯ =====
         const elements = document.querySelectorAll('.feature-card, .game-card, .review-card');
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
