@@ -1,5 +1,5 @@
 /* =============================================
-   1WIN КАЗИНО — МАЛЕНЬКОЕ ВЫПАДАЮЩЕЕ ОКОШКО
+   1WIN КАЗИНО — КВАДРАТНОЕ ОКОШКО МЕНЮ
    ============================================= */
 
 * {
@@ -88,7 +88,7 @@ header {
     height: 70px;
 }
 
-/* ===== БРЕНД + БУРГЕР ===== */
+/* ===== ЛОГОТИП + БУРГЕР ===== */
 .brand-wrapper {
     display: flex;
     align-items: center;
@@ -108,7 +108,7 @@ header {
 .brand img { height: 40px; width: auto; }
 .brand span span { color: var(--accent-light); }
 
-/* ===== БУРГЕР-КНОПКА ===== */
+/* ===== БУРГЕР-КНОПКА (ПОСЛЕ ЛОГОТИПА) ===== */
 .burger-btn {
     display: flex;
     flex-direction: column;
@@ -147,30 +147,34 @@ header {
     display: none !important;
 }
 
-/* ===== МАЛЕНЬКОЕ ВЫПАДАЮЩЕЕ ОКОШКО ===== */
+/* ===== КВАДРАТНОЕ ОКОШКО МЕНЮ ===== */
 .mobile-menu {
     display: none;
     position: fixed;
-    top: 70px;
-    left: 20px;
+    top: 72px;
+    left: 50%;
+    transform: translateX(-50%);
     width: 220px;
-    background: rgba(10, 22, 40, 0.97);
-    backdrop-filter: blur(20px);
+    background: var(--bg-primary);
+    background-image: url('images/bg-pattern.png');
+    background-repeat: repeat;
+    background-size: 300px 300px;
+    background-blend-mode: normal;
     border: 1px solid var(--border-glow);
-    border-radius: 14px;
+    border-radius: 12px;
     padding: 8px 0;
     flex-direction: column;
     gap: 2px;
     z-index: 999;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-    transform: translateY(-10px) scale(0.95);
+    transform: translateX(-50%) translateY(-10px) scale(0.95);
     opacity: 0;
     transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .mobile-menu.open {
     display: flex;
-    transform: translateY(0) scale(1);
+    transform: translateX(-50%) translateY(0) scale(1);
     opacity: 1;
 }
 
@@ -181,7 +185,7 @@ header {
     border-radius: 6px;
     color: var(--text-muted);
     transition: all 0.2s ease;
-    text-align: left;
+    text-align: center;
     border: none;
     background: transparent;
 }
@@ -539,7 +543,7 @@ footer {
     .brand-wrapper { gap: 8px; }
     .header-actions .btn { padding: 6px 14px; font-size: 12px; }
     .header-actions .btn.ghost { display: none; }
-    .mobile-menu { top: 60px; left: 12px; width: 200px; }
+    .mobile-menu { top: 62px; width: 200px; }
     .mobile-menu .nav-link { font-size: 13px; padding: 8px 14px; }
     .hero { padding: 30px 20px 60px; }
     .hero-title { font-size: 32px; }
@@ -561,5 +565,5 @@ footer {
     .stats { grid-template-columns: 1fr 1fr; gap: 12px; padding: 16px; }
     .stats span { font-size: 20px; }
     .game-card img { height: 140px; }
-    .mobile-menu { left: 10px; width: 180px; }
+    .mobile-menu { width: 180px; }
 }
