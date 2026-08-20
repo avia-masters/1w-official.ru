@@ -31,13 +31,13 @@
     <header>
         <div class="header-inner">
             <div class="brand-wrapper">
+                <button class="burger-btn" id="burgerBtn" aria-label="Открыть меню">
+                    <span></span><span></span><span></span>
+                </button>
                 <a href="/" class="brand">
                     <img src="images/1win-logo.png" alt="1WIN КАЗИНО">
                     <span>1WIN <span>КАЗИНО</span></span>
                 </a>
-                <button class="burger-btn" id="burgerBtn" aria-label="Открыть меню">
-                    <span></span><span></span><span></span>
-                </button>
             </div>
 
             <nav class="nav" id="desktopNav" style="display:none !important;"></nav>
@@ -49,7 +49,7 @@
         </div>
     </header>
 
-    <!-- ===== ВЫПАДАЮЩЕЕ МЕНЮ ===== -->
+    <!-- ===== МАЛЕНЬКОЕ ОКОШКО МЕНЮ ===== -->
     <div class="mobile-menu" id="mobileMenu">
         <a href="/" class="nav-link active">Главная</a>
         <a href="bonus.html" class="nav-link">Бонусы</a>
@@ -169,11 +169,12 @@
     </div>
 
     <script>
-        // ===== БУРГЕР-МЕНЮ =====
+        // ===== БУРГЕР-МЕНЮ (МАЛЕНЬКОЕ ОКОШКО) =====
         const burgerBtn = document.getElementById('burgerBtn');
         const mobileMenu = document.getElementById('mobileMenu');
 
-        burgerBtn.addEventListener('click', function() {
+        burgerBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
             this.classList.toggle('active');
             mobileMenu.classList.toggle('open');
         });
