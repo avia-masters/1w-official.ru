@@ -4,12 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>1WIN КАЗИНО — официальный сайт с бонусом 500%</title>
-    <meta name="description" content="1WIN КАЗИНО — официальный сайт для СНГ. Регистрация, бонусы до 500%, более 10 000 игр, быстрые выплаты. Играй и выигрывай с 1WIN!" />
+    <meta name="description" content="1WIN КАЗИНО — официальный сайт для СНГ. Регистрация, бонусы до 500%, более 10 000 игр, быстрые выплаты." />
     <link rel="canonical" href="https://1w-official.ru/" />
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
     <link rel="stylesheet" href="style.css">
 
-    <!-- Яндекс.Метрика (замените ID на свой) -->
     <script type="text/javascript">
         (function(m,e,t,r,i,k,a){
             m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
@@ -20,9 +19,6 @@
         ym(111718532, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
     </script>
     <noscript><div><img src="https://mc.yandex.ru/watch/111718532" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-
-    <meta name="google-site-verification" content="ваш-код" />
-    <meta name="yandex-verification" content="ваш-код" />
 </head>
 <body>
 
@@ -52,8 +48,8 @@
                 <a href="reviews.html" class="nav-link">Отзывы</a>
 
                 <div class="dropdown">
-                    <button class="dropbtn">Ещё ▾</button>
-                    <div class="dropdown-content">
+                    <button class="dropbtn" id="dropdownBtn">Ещё ▾</button>
+                    <div class="dropdown-content" id="dropdownContent">
                         <a href="about.html">О нас</a>
                         <a href="vip.html">VIP</a>
                         <a href="blog.html">Блог</a>
@@ -277,29 +273,28 @@
             });
         });
 
-        // ===== ВЫПАДАЮЩЕЕ МЕНЮ ПО КЛИКУ =====
-        document.querySelectorAll('.dropbtn').forEach(button => {
-            button.addEventListener('click', function(e) {
+        // ===== КНОПКА "ЕЩЁ" (С ID) =====
+        const dropdownBtn = document.getElementById('dropdownBtn');
+        const dropdownContent = document.getElementById('dropdownContent');
+
+        if (dropdownBtn && dropdownContent) {
+            dropdownBtn.addEventListener('click', function(e) {
                 e.stopPropagation();
-                const parent = this.closest('.dropdown');
-                // Закрываем все другие дропдауны
+                const parent = this.parentElement;
                 document.querySelectorAll('.dropdown.open').forEach(d => {
                     if (d !== parent) d.classList.remove('open');
                 });
                 parent.classList.toggle('open');
             });
-        });
+        }
 
-        // Закрываем дропдаун при клике вне его
         document.addEventListener('click', function(e) {
             if (!e.target.closest('.dropdown')) {
-                document.querySelectorAll('.dropdown.open').forEach(d => {
-                    d.classList.remove('open');
-                });
+                document.querySelectorAll('.dropdown.open').forEach(d => d.classList.remove('open'));
             }
         });
 
-        // ===== ЭФФЕКТ ЛОГОТИПА ПРИ СКРОЛЛЕ =====
+        // ===== ЭФФЕКТ ЛОГОТИПА =====
         const logo = document.querySelector('.brand img');
         window.addEventListener('scroll', () => {
             let scroll = window.scrollY;
@@ -331,24 +326,6 @@
             observer.observe(el);
         });
     </script>
-<script>
-    // ===== КНОПКА "ЕЩЁ" (ВЫПАДАЮЩЕЕ МЕНЮ) =====
-    document.querySelectorAll('.dropbtn').forEach(btn => {
-        btn.addEventListener('click', function(e) {
-            e.stopPropagation();
-            const parent = this.closest('.dropdown');
-            document.querySelectorAll('.dropdown.open').forEach(d => {
-                if (d !== parent) d.classList.remove('open');
-            });
-            parent.classList.toggle('open');
-        });
-    });
 
-    document.addEventListener('click', function(e) {
-        if (!e.target.closest('.dropdown')) {
-            document.querySelectorAll('.dropdown.open').forEach(d => d.classList.remove('open'));
-        }
-    });
-</script>
 </body>
 </html>
