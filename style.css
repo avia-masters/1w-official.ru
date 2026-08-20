@@ -1,5 +1,5 @@
 /* =============================================
-   1WIN КАЗИНО — БУРГЕР СПРАВА ОТ НАДПИСИ
+   1WIN КАЗИНО — МАЛЕНЬКОЕ ВЫПАДАЮЩЕЕ ОКОШКО
    ============================================= */
 
 * {
@@ -88,11 +88,11 @@ header {
     height: 70px;
 }
 
-/* ===== БРЕНД + БУРГЕР (В ОДНОМ БЛОКЕ) ===== */
+/* ===== БРЕНД + БУРГЕР ===== */
 .brand-wrapper {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
     flex-shrink: 0;
 }
 
@@ -108,7 +108,7 @@ header {
 .brand img { height: 40px; width: auto; }
 .brand span span { color: var(--accent-light); }
 
-/* ===== БУРГЕР-КНОПКА (СПРАВА ОТ НАДПИСИ) ===== */
+/* ===== БУРГЕР-КНОПКА ===== */
 .burger-btn {
     display: flex;
     flex-direction: column;
@@ -147,58 +147,52 @@ header {
     display: none !important;
 }
 
-/* ===== ВЫПАДАЮЩЕЕ МЕНЮ С ФОНОМ BG-PATTERN ===== */
+/* ===== МАЛЕНЬКОЕ ВЫПАДАЮЩЕЕ ОКОШКО ===== */
 .mobile-menu {
     display: none;
     position: fixed;
     top: 70px;
-    left: 0;
-    right: 0;
-    background-image: url('images/bg-pattern.png');
-    background-repeat: repeat;
-    background-size: 300px 300px;
-    background-color: rgba(10, 22, 40, 0.97);
-    background-blend-mode: overlay;
-    backdrop-filter: blur(8px);
-    padding: 12px 0 20px;
+    left: 20px;
+    width: 220px;
+    background: rgba(10, 22, 40, 0.97);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--border-glow);
+    border-radius: 14px;
+    padding: 8px 0;
     flex-direction: column;
-    align-items: center;
     gap: 2px;
     z-index: 999;
-    border-bottom: 1px solid var(--border-glow);
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-    transform: translateY(-10px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    transform: translateY(-10px) scale(0.95);
     opacity: 0;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .mobile-menu.open {
     display: flex;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
     opacity: 1;
 }
 
 .mobile-menu .nav-link {
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 500;
-    padding: 10px 30px;
-    border-radius: 8px;
+    padding: 10px 16px;
+    border-radius: 6px;
     color: var(--text-muted);
     transition: all 0.2s ease;
-    text-align: center;
+    text-align: left;
     border: none;
     background: transparent;
-    width: 100%;
-    max-width: 400px;
 }
 
 .mobile-menu .nav-link:hover {
-    background: rgba(74, 184, 255, 0.08);
+    background: rgba(74, 184, 255, 0.06);
     color: var(--accent-light);
 }
 
 .mobile-menu .nav-link.active {
-    background: rgba(74, 184, 255, 0.12);
+    background: rgba(74, 184, 255, 0.08);
     color: var(--accent-light);
     font-weight: 600;
 }
@@ -545,8 +539,8 @@ footer {
     .brand-wrapper { gap: 8px; }
     .header-actions .btn { padding: 6px 14px; font-size: 12px; }
     .header-actions .btn.ghost { display: none; }
-    .mobile-menu { top: 60px; }
-    .mobile-menu .nav-link { font-size: 14px; padding: 8px 20px; }
+    .mobile-menu { top: 60px; left: 12px; width: 200px; }
+    .mobile-menu .nav-link { font-size: 13px; padding: 8px 14px; }
     .hero { padding: 30px 20px 60px; }
     .hero-title { font-size: 32px; }
     .stats { grid-template-columns: 1fr 1fr; padding: 20px; }
@@ -567,4 +561,5 @@ footer {
     .stats { grid-template-columns: 1fr 1fr; gap: 12px; padding: 16px; }
     .stats span { font-size: 20px; }
     .game-card img { height: 140px; }
+    .mobile-menu { left: 10px; width: 180px; }
 }
