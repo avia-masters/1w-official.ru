@@ -248,6 +248,23 @@
             observer.observe(el);
         });
     </script>
-
+<script>
+    // ===== КНОПКА "ЕЩЁ" =====
+    document.querySelectorAll('.dropbtn').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            const parent = this.closest('.dropdown');
+            document.querySelectorAll('.dropdown.open').forEach(d => {
+                if (d !== parent) d.classList.remove('open');
+            });
+            parent.classList.toggle('open');
+        });
+    });
+    document.addEventListener('click', function(e) {
+        if (!e.target.closest('.dropdown')) {
+            document.querySelectorAll('.dropdown.open').forEach(d => d.classList.remove('open'));
+        }
+    });
+</script>
 </body>
 </html>
