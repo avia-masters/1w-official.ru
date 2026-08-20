@@ -580,8 +580,9 @@ section {
 /* ===== ИСПРАВЛЕНИЕ: КАРТИНКИ В ПОЛНЫЙ РАЗМЕР ===== */
 .game-card img {
     width: 100%;
-    height: 200px;
-    object-fit: cover;
+    height: auto;
+    aspect-ratio: 16/9;
+    object-fit: contain;
     display: block;
     background: var(--bg-secondary);
 }
