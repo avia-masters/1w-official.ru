@@ -1,5 +1,5 @@
 /* =============================================
-   1WIN КАЗИНО — ПРЕМИАЛЬНЫЙ НЕОН-СТИЛЬ
+   1WIN КАЗИНО — ПРОСТОЙ СТИЛЬ
    ============================================= */
 
 * {
@@ -103,7 +103,7 @@ header {
 
 /* ===== БУРГЕР-МЕНЮ ===== */
 .burger-btn {
-    display: none;
+    display: flex;
     flex-direction: column;
     justify-content: space-between;
     width: 30px;
@@ -129,36 +129,9 @@ header {
 .burger-btn.active span:nth-child(2) { opacity: 0; }
 .burger-btn.active span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
 
-/* ===== ДЕСКТОПНАЯ НАВИГАЦИЯ ===== */
+/* ===== ДЕСКТОПНАЯ НАВИГАЦИЯ — СКРЫТА ===== */
 .nav {
-    display: flex;
-    gap: 6px;
-    align-items: center;
-    overflow-x: auto;
-    padding: 0 10px;
-    scrollbar-width: none;
-    flex: 1;
-    justify-content: center;
-}
-
-.nav::-webkit-scrollbar { display: none; }
-
-.nav-link {
-    color: var(--text-muted);
-    font-size: 13px;
-    font-weight: 500;
-    padding: 6px 14px;
-    border-radius: 20px;
-    transition: all 0.3s ease;
-    white-space: nowrap;
-    border: 1px solid transparent;
-}
-
-.nav-link:hover,
-.nav-link.active {
-    color: var(--accent-light);
-    background: rgba(74, 184, 255, 0.08);
-    border-color: rgba(74, 184, 255, 0.15);
+    display: none !important;
 }
 
 /* ===== МОБИЛЬНОЕ МЕНЮ ===== */
@@ -528,36 +501,14 @@ footer {
 }
 
 /* ===== АДАПТИВ ===== */
-@media (max-width: 992px) {
-    .hero-grid { grid-template-columns: 1fr; }
-    .footer-grid { grid-template-columns: 1fr 1fr; }
-    .bear-glow-1, .bear-glow-2, .bear-glow-3, .bear-glow-4 {
-        width: 150px !important;
-        height: 150px !important;
-        opacity: 0.04 !important;
-    }
-}
-
 @media (max-width: 768px) {
     body { padding-top: 60px; }
     header { height: 60px; }
     .header-inner { height: 60px; }
     .brand img { height: 32px; }
     .brand span { font-size: 16px; }
-
-    /* ===== НА МОБИЛКЕ СКРЫВАЕМ ДЕСКТОПНУЮ НАВИГАЦИЮ ===== */
-    .nav {
-        display: none !important;
-    }
-
-    /* ===== ПОКАЗЫВАЕМ БУРГЕР ===== */
-    .burger-btn {
-        display: flex !important;
-    }
-
     .header-actions .btn { padding: 6px 14px; font-size: 12px; }
     .header-actions .btn.ghost { display: none; }
-
     .hero { padding: 30px 20px 60px; }
     .hero-title { font-size: 32px; }
     .stats { grid-template-columns: 1fr 1fr; padding: 20px; }
