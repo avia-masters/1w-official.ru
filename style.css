@@ -87,7 +87,7 @@ img {
 .bear-glow-3 { bottom: 2%; left: 1%; width: 280px; height: 280px; }
 .bear-glow-4 { bottom: 2%; right: 1%; width: 280px; height: 280px; }
 
-/* ===== ХЕДЕР (ФИКСИРОВАННЫЙ) ===== */
+/* ===== ХЕДЕР ===== */
 header {
     position: fixed;
     top: 0;
@@ -131,9 +131,9 @@ header {
     color: var(--accent-light);
 }
 
-/* ===== БУРГЕР ===== */
+/* ===== БУРГЕР-МЕНЮ (ВИДНО ВСЕГДА) ===== */
 .burger-btn {
-    display: none;
+    display: flex;
     flex-direction: column;
     justify-content: space-between;
     width: 30px;
@@ -165,13 +165,13 @@ header {
     transform: translateY(-9px) rotate(-45deg);
 }
 
-/* ===== НАВИГАЦИЯ ===== */
+/* ===== НАВИГАЦИЯ (СКРЫВАЕТСЯ НА МОБИЛКАХ) ===== */
 .nav {
     display: flex;
-    gap: 4px;
+    gap: 6px;
     align-items: center;
     overflow-x: auto;
-    padding: 0 8px;
+    padding: 0 10px;
     scrollbar-width: none;
     flex: 1;
     justify-content: center;
@@ -185,7 +185,7 @@ header {
     color: var(--text-muted);
     font-size: 13px;
     font-weight: 500;
-    padding: 6px 12px;
+    padding: 6px 14px;
     border-radius: 20px;
     transition: all 0.3s ease;
     white-space: nowrap;
@@ -199,71 +199,42 @@ header {
     border-color: rgba(74, 184, 255, 0.15);
 }
 
-/* ===== ВЫПАДАЮЩЕЕ МЕНЮ (ИСПРАВЛЕННОЕ) ===== */
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-.dropbtn {
-    background: transparent;
-    color: var(--text-muted);
-    font-size: 13px;
-    font-weight: 500;
-    padding: 6px 12px;
-    border: none;
-    cursor: pointer;
-    border-radius: 20px;
-    transition: all 0.3s ease;
-    font-family: inherit;
-}
-
-.dropbtn:hover,
-.dropbtn.active {
-    color: var(--accent-light);
-    background: rgba(74, 184, 255, 0.08);
-}
-
-.dropdown-content {
+/* ===== МОБИЛЬНОЕ МЕНЮ ===== */
+.mobile-menu {
     display: none;
-    position: absolute;
-    top: 38px;
-    left: 50%;
-    transform: translateX(-50%);
+    position: fixed;
+    top: 70px;
+    left: 0;
+    width: 100%;
     background: rgba(10, 22, 40, 0.98);
     backdrop-filter: blur(15px);
-    min-width: 180px;
+    padding: 20px;
+    flex-direction: column;
+    gap: 6px;
+    border-bottom: 1px solid rgba(26, 48, 80, 0.3);
+    z-index: 999;
+    max-height: calc(100vh - 70px);
+    overflow-y: auto;
+}
+
+.mobile-menu.open {
+    display: flex;
+}
+
+.mobile-menu .nav-link {
+    font-size: 16px;
+    padding: 12px 20px;
     border-radius: 12px;
-    border: 1px solid var(--border-glow);
-    padding: 8px 0;
-    z-index: 100;
-    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4);
-}
-
-.dropdown-content a {
-    display: block;
-    padding: 10px 20px;
-    color: var(--text-muted);
-    font-size: 13px;
-    font-weight: 500;
+    border: 1px solid rgba(255, 255, 255, 0.03);
     text-align: center;
-    transition: all 0.3s ease;
-    white-space: nowrap;
+    color: var(--text-muted);
 }
 
-.dropdown-content a:hover {
-    color: var(--accent-light);
+.mobile-menu .nav-link:hover,
+.mobile-menu .nav-link.active {
     background: rgba(74, 184, 255, 0.06);
-}
-
-/* Показываем меню при наведении (для десктопа) */
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
-/* Показываем меню при добавлении класса .open (для мобильных/кликов) */
-.dropdown.open .dropdown-content {
-    display: block;
+    border-color: rgba(74, 184, 255, 0.1);
+    color: var(--accent-light);
 }
 
 /* ===== КНОПКИ ===== */
@@ -343,7 +314,6 @@ header {
     100% { background-position: 0% 50%; }
 }
 
-/* ===== ХЕДЕР-КНОПКИ ===== */
 .header-actions {
     display: flex;
     align-items: center;
@@ -354,43 +324,6 @@ header {
 .header-actions .btn {
     padding: 8px 18px;
     font-size: 14px;
-}
-
-/* ===== МОБИЛЬНОЕ МЕНЮ ===== */
-.mobile-menu {
-    display: none;
-    position: fixed;
-    top: 70px;
-    left: 0;
-    width: 100%;
-    background: rgba(10, 22, 40, 0.98);
-    backdrop-filter: blur(15px);
-    padding: 20px;
-    flex-direction: column;
-    gap: 6px;
-    border-bottom: 1px solid rgba(26, 48, 80, 0.3);
-    z-index: 999;
-    max-height: calc(100vh - 70px);
-    overflow-y: auto;
-}
-
-.mobile-menu.open {
-    display: flex;
-}
-
-.mobile-menu .nav-link {
-    font-size: 16px;
-    padding: 12px 20px;
-    border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.03);
-    text-align: center;
-}
-
-.mobile-menu .nav-link:hover,
-.mobile-menu .nav-link.active {
-    background: rgba(74, 184, 255, 0.06);
-    border-color: rgba(74, 184, 255, 0.1);
-    color: var(--accent-light);
 }
 
 /* ===== ГЕРОЙ ===== */
@@ -475,7 +408,6 @@ header {
     font-size: 14px;
 }
 
-/* ===== ПРЕДУПРЕЖДЕНИЕ ===== */
 .warning {
     max-width: 1200px;
     margin: -30px auto 30px;
@@ -487,7 +419,6 @@ header {
     border-bottom: 1px solid rgba(255, 255, 255, 0.03);
 }
 
-/* ===== СЕКЦИИ ===== */
 section {
     max-width: 1200px;
     margin: 0 auto;
@@ -515,7 +446,6 @@ section {
     margin-bottom: 40px;
 }
 
-/* ===== FEATURES ===== */
 .features-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -555,7 +485,7 @@ section {
     line-height: 1.7;
 }
 
-/* ===== ИГРЫ (ИСПРАВЛЕННЫЕ КАРТОЧКИ) ===== */
+/* ===== ИГРЫ ===== */
 .games-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -577,12 +507,10 @@ section {
     box-shadow: 0 8px 40px rgba(74, 184, 255, 0.05);
 }
 
-/* ===== ИСПРАВЛЕНИЕ: КАРТИНКИ В ПОЛНЫЙ РАЗМЕР ===== */
 .game-card img {
     width: 100%;
-    height: auto;
-    aspect-ratio: 16/9;
-    object-fit: contain;
+    height: 200px;
+    object-fit: cover;
     display: block;
     background: var(--bg-secondary);
 }
@@ -603,7 +531,6 @@ section {
     margin-bottom: 12px;
 }
 
-/* ===== ОТЗЫВЫ ===== */
 .reviews-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -642,13 +569,11 @@ section {
     font-size: 14px;
 }
 
-/* ===== ЦЕНТРОВКА КНОПОК ===== */
 .center-btn {
     text-align: center;
     margin-top: 30px;
 }
 
-/* ===== CTA ===== */
 .cta-section {
     background: linear-gradient(145deg, rgba(10, 22, 40, 0.8), rgba(15, 32, 64, 0.6));
     border-top: 1px solid var(--border-glow);
@@ -674,7 +599,6 @@ section {
     margin-bottom: 24px;
 }
 
-/* ===== ФУТЕР ===== */
 footer {
     background: rgba(10, 22, 40, 0.85);
     backdrop-filter: blur(10px);
@@ -729,7 +653,6 @@ footer {
     font-size: 14px;
 }
 
-/* ===== МОБИЛЬНАЯ ПАНЕЛЬ ===== */
 .mobile-bar {
     display: none;
     position: fixed;
@@ -766,16 +689,9 @@ footer {
 
 /* ===== АДАПТИВ ===== */
 @media (max-width: 992px) {
-    .hero-grid {
-        grid-template-columns: 1fr;
-    }
-    .footer-grid {
-        grid-template-columns: 1fr 1fr;
-    }
-    .bear-glow-1,
-    .bear-glow-2,
-    .bear-glow-3,
-    .bear-glow-4 {
+    .hero-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .bear-glow-1, .bear-glow-2, .bear-glow-3, .bear-glow-4 {
         width: 150px !important;
         height: 150px !important;
         opacity: 0.04 !important;
@@ -783,109 +699,33 @@ footer {
 }
 
 @media (max-width: 768px) {
-    body {
-        padding-top: 60px;
-    }
-    header {
-        height: 60px;
-    }
-    .header-inner {
-        height: 60px;
-    }
-    .brand img {
-        height: 32px;
-    }
-    .brand span {
-        font-size: 16px;
-    }
-    .burger-btn {
-        display: flex;
-    }
-    .nav {
-        display: none;
-    }
-    .header-actions .btn {
-        padding: 6px 14px;
-        font-size: 12px;
-    }
-    .header-actions .btn.ghost {
-        display: none;
-    }
-    .hero {
-        padding: 30px 20px 60px;
-    }
-    .hero-title {
-        font-size: 32px;
-    }
-    .stats {
-        grid-template-columns: 1fr 1fr;
-        padding: 20px;
-    }
-    .stats span {
-        font-size: 24px;
-    }
-    .features-grid,
-    .games-grid,
-    .reviews-grid {
-        grid-template-columns: 1fr;
-    }
-    .footer-grid {
-        grid-template-columns: 1fr;
-    }
-    .mobile-bar {
-        display: flex;
-    }
-    footer {
-        padding-bottom: 80px;
-    }
-    .game-card img {
-        height: 160px;
-    }
-    .bear-glow-1,
-    .bear-glow-2,
-    .bear-glow-3,
-    .bear-glow-4 {
-        display: none;
-    }
-    .dropdown-content {
-        left: auto;
-        right: 0;
-        transform: none;
-        min-width: 160px;
-    }
+    body { padding-top: 60px; }
+    header { height: 60px; }
+    .header-inner { height: 60px; }
+    .brand img { height: 32px; }
+    .brand span { font-size: 16px; }
+    .nav { display: none; } /* Скрываем десктопное меню */
+    .burger-btn { display: flex; } /* Показываем бургер */
+    .header-actions .btn { padding: 6px 14px; font-size: 12px; }
+    .header-actions .btn.ghost { display: none; }
+    .hero { padding: 30px 20px 60px; }
+    .hero-title { font-size: 32px; }
+    .stats { grid-template-columns: 1fr 1fr; padding: 20px; }
+    .stats span { font-size: 24px; }
+    .features-grid, .games-grid, .reviews-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .mobile-bar { display: flex; }
+    footer { padding-bottom: 80px; }
+    .game-card img { height: 160px; }
+    .bear-glow-1, .bear-glow-2, .bear-glow-3, .bear-glow-4 { display: none; }
 }
 
 @media (max-width: 480px) {
-    .hero-title {
-        font-size: 26px;
-    }
-    .btn.large {
-        padding: 12px 24px;
-        font-size: 16px;
-    }
-    .hero-buttons {
-        flex-direction: column;
-    }
-    .hero-buttons .btn {
-        width: 100%;
-        text-align: center;
-    }
-    .stats {
-        grid-template-columns: 1fr 1fr;
-        gap: 12px;
-        padding: 16px;
-    }
-    .stats span {
-        font-size: 20px;
-    }
-    .game-card img {
-        height: 140px;
-    }
-    .dropdown-content {
-        min-width: 140px;
-    }
-    .dropdown-content a {
-        font-size: 12px;
-        padding: 8px 16px;
-    }
+    .hero-title { font-size: 26px; }
+    .btn.large { padding: 12px 24px; font-size: 16px; }
+    .hero-buttons { flex-direction: column; }
+    .hero-buttons .btn { width: 100%; text-align: center; }
+    .stats { grid-template-columns: 1fr 1fr; gap: 12px; padding: 16px; }
+    .stats span { font-size: 20px; }
+    .game-card img { height: 140px; }
 }
