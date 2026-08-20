@@ -1,5 +1,5 @@
 /* =============================================
-   1WIN КАЗИНО — ПРОСТОЙ СТИЛЬ
+   1WIN КАЗИНО — СТИЛЬНОЕ МЕНЮ С ИКОНКАМИ
    ============================================= */
 
 * {
@@ -101,13 +101,13 @@ header {
 .brand img { height: 40px; width: auto; }
 .brand span span { color: var(--accent-light); }
 
-/* ===== БУРГЕР-МЕНЮ ===== */
+/* ===== БУРГЕР-МЕНЮ (КРАСИВЫЙ) ===== */
 .burger-btn {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 30px;
-    height: 22px;
+    width: 32px;
+    height: 24px;
     background: transparent;
     border: none;
     cursor: pointer;
@@ -121,20 +121,29 @@ header {
     width: 100%;
     height: 3px;
     background: var(--accent-light);
-    border-radius: 3px;
+    border-radius: 4px;
     transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(74, 184, 255, 0.1);
 }
 
-.burger-btn.active span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
-.burger-btn.active span:nth-child(2) { opacity: 0; }
-.burger-btn.active span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+/* Анимация превращения в крестик */
+.burger-btn.active span:nth-child(1) {
+    transform: translateY(10px) rotate(45deg);
+}
+.burger-btn.active span:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+}
+.burger-btn.active span:nth-child(3) {
+    transform: translateY(-10px) rotate(-45deg);
+}
 
-/* ===== ДЕСКТОПНАЯ НАВИГАЦИЯ — СКРЫТА ===== */
+/* ===== ДЕСКТОПНАЯ НАВИГАЦИЯ (СКРЫТА) ===== */
 .nav {
     display: none !important;
 }
 
-/* ===== МОБИЛЬНОЕ МЕНЮ ===== */
+/* ===== МОБИЛЬНОЕ МЕНЮ (СТИЛЬНОЕ) ===== */
 .mobile-menu {
     display: none;
     position: fixed;
@@ -142,32 +151,58 @@ header {
     left: 0;
     width: 100%;
     background: rgba(10, 22, 40, 0.98);
-    backdrop-filter: blur(15px);
-    padding: 20px;
+    backdrop-filter: blur(20px);
+    padding: 20px 20px 30px;
     flex-direction: column;
-    gap: 6px;
+    gap: 4px;
     border-bottom: 1px solid var(--border-glow);
     z-index: 999;
     max-height: calc(100vh - 70px);
     overflow-y: auto;
+    transform: translateY(-15px);
+    opacity: 0;
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.mobile-menu.open { display: flex; }
+.mobile-menu.open {
+    display: flex;
+    transform: translateY(0);
+    opacity: 1;
+}
 
 .mobile-menu .nav-link {
     font-size: 16px;
-    padding: 12px 20px;
+    font-weight: 500;
+    padding: 14px 20px;
     border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.03);
-    text-align: center;
+    border: 1px solid transparent;
+    text-align: left;
     color: var(--text-muted);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 12px;
 }
 
-.mobile-menu .nav-link:hover,
-.mobile-menu .nav-link.active {
+.mobile-menu .nav-link .icon {
+    font-size: 20px;
+    width: 32px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.mobile-menu .nav-link:hover {
     background: rgba(74, 184, 255, 0.06);
     border-color: rgba(74, 184, 255, 0.1);
     color: var(--accent-light);
+    padding-left: 28px;
+}
+
+.mobile-menu .nav-link.active {
+    background: linear-gradient(135deg, rgba(26, 122, 204, 0.15), rgba(74, 184, 255, 0.05));
+    border-color: rgba(74, 184, 255, 0.15);
+    color: var(--accent-light);
+    font-weight: 600;
 }
 
 /* ===== КНОПКИ ===== */
