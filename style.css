@@ -199,7 +199,7 @@ header {
     border-color: rgba(74, 184, 255, 0.15);
 }
 
-/* ===== ВЫПАДАЮЩЕЕ МЕНЮ ===== */
+/* ===== ВЫПАДАЮЩЕЕ МЕНЮ (ИСПРАВЛЕННОЕ) ===== */
 .dropdown {
     position: relative;
     display: inline-block;
@@ -218,7 +218,8 @@ header {
     font-family: inherit;
 }
 
-.dropbtn:hover {
+.dropbtn:hover,
+.dropbtn.active {
     color: var(--accent-light);
     background: rgba(74, 184, 255, 0.08);
 }
@@ -255,7 +256,13 @@ header {
     background: rgba(74, 184, 255, 0.06);
 }
 
+/* Показываем меню при наведении (для десктопа) */
 .dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Показываем меню при добавлении класса .open (для мобильных/кликов) */
+.dropdown.open .dropdown-content {
     display: block;
 }
 
@@ -548,10 +555,10 @@ section {
     line-height: 1.7;
 }
 
-/* ===== ИГРЫ ===== */
+/* ===== ИГРЫ (ИСПРАВЛЕННЫЕ КАРТОЧКИ) ===== */
 .games-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 24px;
 }
 
@@ -570,9 +577,10 @@ section {
     box-shadow: 0 8px 40px rgba(74, 184, 255, 0.05);
 }
 
+/* ===== ИСПРАВЛЕНИЕ: КАРТИНКИ В ПОЛНЫЙ РАЗМЕР ===== */
 .game-card img {
     width: 100%;
-    height: 180px;
+    height: 200px;
     object-fit: cover;
     display: block;
     background: var(--bg-secondary);
@@ -830,7 +838,7 @@ footer {
         padding-bottom: 80px;
     }
     .game-card img {
-        height: 140px;
+        height: 160px;
     }
     .bear-glow-1,
     .bear-glow-2,
@@ -868,6 +876,9 @@ footer {
     }
     .stats span {
         font-size: 20px;
+    }
+    .game-card img {
+        height: 140px;
     }
     .dropdown-content {
         min-width: 140px;
